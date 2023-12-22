@@ -29,6 +29,7 @@ let typedConstant: Type
 |You use var when you need a value that might change during the course of your program.|You use let when you have a value that should not (or cannot) be changed throughout the execution of your program.|
 
 **Choosing Between var and let**
+
 **Use var when:**
 > You expect the value to change or be modified during the execution of your program.
 You are working with variables that represent mutable state.
@@ -105,7 +106,7 @@ The Example shown above is used to change the image of an imageView.
 
 **Actual Implementation Shown below.**  
 
-### Playing with Image
+#### Playing with Image
 
 ---
 
@@ -133,3 +134,26 @@ imageView.image = [
 
 
 ```
+
+### Auto Layout
+
+---
+
+Auto Layout is used to automatically format layout of our application, and handle screen orientation.
+
+**Things we will learn**
+
+- [Size Classes and Orientation](#size-classes-and-orientation)
+- Understand Constraints
+- Learn about Alignment and Pinning
+- Use Containers for more fine grained control.
+- Learn about StackViews
+
+## Size Classes and Orientation
+
+Size classes and device orientation are important concepts in iOS development, particularly when working with Auto Layout to create adaptive user interfaces that look good on various screen sizes and orientations.
+
+
+### Size Classes
+
+> Size classes are a way of categorizing different screen sizes into compact and regular variations for both width and height.
