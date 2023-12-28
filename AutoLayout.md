@@ -27,3 +27,8 @@ There are 3 ways to embed your elements in the container (UIView)
    1. Editor -> Embed In -> View
 3. Select all the elements you want to embed and follow these steps
    1. Bottom right corner of the StoryBoard Screen (You will find a arrow down, inside a box)-> View
+
+
+See the picture below.
+
+![Picture](/Images/EmbedUIElement.png)
