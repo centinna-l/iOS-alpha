@@ -465,3 +465,22 @@ print(ghostTown.rescourses)
 MVC (Model - View - Controller)
 
 mutating.
+
+
+SceneViewDelegateController
+
+cocoapods
+
+sudo gem install cocoapods - will fail on apple silicon
+
+
+brew install cocoapods - use this instead.
+
+swift package manager.
+
+we can use cocoapods or swift package manager.
+but industry uses cocoapods heavily
+
+if you add view controller, we need to change values at the source.
+
+user persistance.image
