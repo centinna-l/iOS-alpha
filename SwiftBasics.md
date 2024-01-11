@@ -11,6 +11,34 @@ var name: String = "John"
 
 // Constants (let)
 let pi = 3.14
+
+let integerValue: Int = 42
+let unsignedIntValue: UInt = 42
+
+let doubleValue: Double = 3.14
+let floatValue: Float = 2.718
+
+let greeting: String = "Hello, Swift!"
+
+let isTrue: Bool = true
+let isFalse: Bool = false
+
+// Collections
+
+// Arrays
+let numbers: [Int] = [1, 2, 3, 4, 5]
+
+// Dictionaries
+let person: [String: Any] = ["name": "John", "age": 25, "isStudent": true]
+
+// Optionals
+var optionalValue: Int? = 42
+
+let firstLetter: Character = "A"
+
+// Any or Any Object
+var anyValue: Any = 42
+var anyObjectValue: AnyObject = "Hello, World!"
 ```
 
 ## Operations
@@ -113,6 +141,23 @@ if temperature > 30 {
 }
 ```
 
+### Switch Statements
+
+---
+
+```swift
+let day = "Monday"
+
+switch day {
+case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday":
+    print("It's a weekday.")
+case "Saturday", "Sunday":
+    print("It's a weekend.")
+default:
+    print("Invalid day.")
+}
+```
+
 
 ## Looping
 
@@ -181,7 +226,59 @@ let stringValue: Any = "123"
 let optionalInt = stringValue as? Int
 ```
 
+
+## Optional Chaining (?)
+
+**Purpose:** Used to safely unwrap optionals and to chain multiple optional values.
+**Effect:** If the optional is nil, the entire chain evaluates to nil without causing a runtime crash.
+
+```swift
+let optionalString: String? = "Hello, Swift!"
+
+// Using optional chaining to safely access the count property
+let count = optionalString?.count
+```
+
+## Force Unwrapped with (!)
+
+**Purpose:** Used to forcefully unwrap an optional when the programmer is certain that the optional contains a value.
+**Effect:** If the optional is nil and you force unwrap it with !, a runtime crash will occur.
+
+```swift
+let optionalNumber: Int? = 42
+
+// Forcefully unwrapping the optional (assuming we are sure it's not nil)
+let unwrappedNumber = optionalNumber!
+```
+
+## When to use each
+
+### Use ? when:
+
+- You want to safely handle optionals without crashing if they are nil.
+- You are chaining multiple optional values, and you want the chain to gracefully handle nil values.
+
+### Use ! when:
+
+- You are certain that the optional contains a value, and you want to forcefully unwrap it.
+- You've performed necessary checks elsewhere in your code to ensure that the optional is not nil.
+
+### Caution (Read this!)
+
+> Using ! to force unwrap an optional without proper checks can lead to runtime crashes. It's generally safer to use ? and handle optionals safely, or to use conditional unwrapping with if let or guard let when you can.
+
+
+```swift
+if let unwrappedNumber = optionalNumber {
+    // Use unwrappedNumber safely
+} else {
+    // Handle the case where optionalNumber is nil
+}
+```
+
 ## Practice Questions
+
+**You can use any input.**
 
 1. Write a function that takes an array of integers and returns the sum of all even numbers.
 2. Write a function to calculate the factorial of a given number.
