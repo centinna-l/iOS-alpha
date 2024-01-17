@@ -281,9 +281,129 @@ if let unwrappedNumber = optionalNumber {
 **You can use any input.**
 
 1. Write a function that takes an array of integers and returns the sum of all even numbers.
+```swift
+let evenOrOdd: (Int) -> Bool = { ( num) in
+    return num % 2 == 0 ? true : false
+}
+
+func sumOfEvenNumbers(_ numbers: [Int]) -> Int {
+    //Method 1
+    //return numbers.filter { $0 % 2 == 0 }.reduce(0, +)
+    //Method 2
+    func sumOfEvenNumbers(_ numbers: [Int]) -> Int {
+    var sum = 0
+    
+    for number in numbers {
+        if evenOrOdd(number) {
+            sum += number
+        }
+    }
+    
+    return sum
+}
+}
+
+let numbersArray = [2, 5, 8, 11, 4, 7, 10]
+let result = sumOfEvenNumbers(numbersArray)
+print("Sum of even numbers: \(result)")
+```
 2. Write a function to calculate the factorial of a given number.
+```swift
+func factorial(_ n: Int) -> Int {
+    if n == 0 || n == 1 {
+        return 1
+    } else {
+        return n * factorial(n - 1)
+    }
+}
+
+let n = 5
+let result = factorial(n)
+print("Factorial of \(n): \(result)")
+```
 3. Write a function to check if a given string is a palindrome.
+```swift
+func reverseString(_ input: String) -> String {
+    var reversed = ""
+    
+    for char in input.lowercased() {
+        reversed = String(char) + reversed
+    }
+    
+    return reversed
+}
+func isPalindrome(_ str: String) -> Bool {
+    let reversed = reverseString(str)
+    return str.lowercased() == reversed.lowercased()
+}
+
+let word = "level"
+let isPalindromeResult = isPalindrome(word)
+print("\(word) is a palindrome: \(isPalindromeResult)")
+```
 4. Write a function to check if a given number is prime.
+```swift
+
+func isPrime(_ number: Int) -> Bool {
+    if number < 2 {
+        return false
+    }
+    for i in 2..<number {
+        if number % i == 0 {
+            return false
+        }
+    }
+    return true
+}
+
+let num = 13
+let isPrimeResult = isPrime(num)
+print("\(num) is a prime number: \(isPrimeResult)")
+```
+
+
 5. Write a function to reverse a given string.
+```swift
+func reverseString(_ input: String) -> String {
+    var reversed = ""
+    
+    for char in input.lowercased() {
+        reversed = String(char) + reversed
+    }
+    
+    return reversed
+}
+
+let originalString = "Swift Programming"
+let reversedString = reverseString(originalString)
+print("Original: \(originalString)\nReversed: \(reversedString)")
+```
 6. Write a function that takes an array of integers and returns the maximum number.
+```swift
+func findMaxNumber(_ numbers: [Int]) -> Int? {
+    return numbers.max()
+}
+
+let numbersArray = [12, 5, 8, 21, 15]
+if let maxNumber = findMaxNumber(numbersArray) {
+    print("Maximum number: \(maxNumber)")
+} else {
+    print("The array is empty.")
+}
+```
 7. Write a function that counts the occurrences of each element in an array.
+```swift
+func countOccurrences(_ array: [Int]) -> [Int: Int] {
+    var counts: [Int: Int] = [:]
+
+    for element in array {
+        counts[element, default: 0] += 1
+    }
+
+    return counts
+}
+
+let elements = ["apple", "banana", "orange", "apple", "banana", "apple"]
+let occurrences = countOccurrences(elements)
+print("Element occurrences: \(occurrences)")
+```
