@@ -407,3 +407,29 @@ let elements = ["apple", "banana", "orange", "apple", "banana", "apple"]
 let occurrences = countOccurrences(elements)
 print("Element occurrences: \(occurrences)")
 ```
+
+8. Two Number Sum Problem
+```swift
+let array = [3,5,-4,8,11,1,-1,6]
+
+func twoNumberSum(array: [Int], targetSum: Int) -> [Int] {
+    var sortedArray = array // make the copy, as array is an constant
+    sortedArray.sort()
+    var lp = 0;
+    var rp = sortedArray.count - 1
+    while lp < rp {
+        var currentSum = sortedArray[lp] + sortedArray[rp]
+        if currentSum == targetSum {
+            return [sortedArray[lp], sortedArray[rp]]
+        }else if currentSum > targetSum {
+            rp -= 1
+        }else if currentSum < targetSum {
+            lp += 1
+        }
+    }
+    return []
+}
+
+print(twoNumberSum(array: array, targetSum: 10))
+
+```
