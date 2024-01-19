@@ -393,8 +393,8 @@ if let maxNumber = findMaxNumber(numbersArray) {
 ```
 7. Write a function that counts the occurrences of each element in an array.
 ```swift
-func countOccurrences(_ array: [Int]) -> [Int: Int] {
-    var counts: [Int: Int] = [:]
+func countOccurrences(_ array: [String]) -> [String: Int] {
+    var counts: [String: Int] = [:]
 
     for element in array {
         counts[element, default: 0] += 1
