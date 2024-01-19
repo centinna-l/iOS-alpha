@@ -284,7 +284,7 @@ if let unwrappedNumber = optionalNumber {
 ```swift
 let evenOrOdd: (Int) -> Bool = { ( num) in
     return num % 2 == 0 ? true : false
-}
+} // This is an example of closure.
 
 func sumOfEvenNumbers(_ numbers: [Int]) -> Int {
     //Method 1
