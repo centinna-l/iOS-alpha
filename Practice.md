@@ -87,8 +87,6 @@ let power: (Int, Int) -> Int = {
     return power
 } // Example usage of clousure.
 
-print(power(2,3))
-
 func isArmstrongNumber(_ number: Int) -> Bool {
     guard number >= 0 else {
         print("Invalid input. Please enter a non-negative integer.")
