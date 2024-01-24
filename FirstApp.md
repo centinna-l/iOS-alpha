@@ -12,12 +12,13 @@ We will see how to make our first project in xcode. Follow the steps shown below
 
 3. Give a name and make sure you have the following selection as shown in the image.
 
-![Selection to IOS App](./Images/firstAppS3.png)
+
+![step 3](./Images/firstAppS3.png)
 
 4. Once you create the application you will see the following in the general section.
 
 
-![Selection](./Images/firstAppS4.png)
+![step 4](./Images/firstAppS4.png)
 
 
 **What is App Delegate?**
@@ -51,7 +52,7 @@ Each scene represents an instance of the app's user interface and runs independe
 - View Controllers can be linked together using **segues** *(Will be covered later.)* defined in the Main Storyboard, allowing for smooth navigation between different screens.
 
 
-5. This is how your Main.storyboard looks like.
+1. This is how your Main.storyboard looks like.
 
 ![StoryBoard](./Images/firstAppS5.png)
 
