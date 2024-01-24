@@ -17,7 +17,7 @@ We will see how to make our first project in xcode. Follow the steps shown below
 4. Once you create the application you will see the following in the general section.
 
 
-![Selection to IOS App](./Images/firstAppS4.png)
+![Selection](./Images/firstAppS4.png)
 
 
 **What is App Delegate?**
