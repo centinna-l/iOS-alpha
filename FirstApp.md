@@ -150,6 +150,7 @@ class ViewController: UIViewController {
 ```
 
 14. Once you finish all the 13 steps, click on the play button on the top left corner, and the app will run for you, in an emulator.
+15. Once you complete from Steps 1 - 14, please follow the [autolayout](AutoLayout.md#autolayout-step-by-step) step by step. 
 
 ## Things to improve (DIY)
 
