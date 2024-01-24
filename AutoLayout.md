@@ -4,10 +4,6 @@
 
 Auto Layout is used to automatically format layout of our application, and handle screen orientation.
 
-**Things we will learn**
-
-- [Size Classes and Orientation](#size-classes-and-orientation)
-  - [Size Classes](#size-classes)
 
 ## Size Classes and Orientation
 
@@ -32,3 +28,23 @@ There are 3 ways to embed your elements in the container (UIView)
 See the picture below.
 
 ![Picture](/Images/EmbedUIElement.png)
+
+
+## AutoLayout Step By Step
+
+1. Embed all your UIElements in their own `view`.
+
+![embed in view](./Images/autoLayoutV1.png)
+1. Once you embed all your elements, in a view, give a name to the view. Do it for all the views. *You can change the background of your view to adjust the size of the views.*
+2. Select all your Views, and Embed them in a Stack view.
+![stack view](./Images/autoLayoutV2.png)
+3. Select each view and align them and set constraints if you require. Ideally it should be center both **horizontally** and **vertically**.
+ ![alignment](./Images/autoLayoutS4.png)
+1. Then select the stack view, add  the constrains as 0,0,0,0 *(top, bottom, left, right)*
+
+![set constraints for Stack view](./Images/autoLayoutS1.png)
+
+6. Look into any changes required, if so delete all the constrains and redo all the steps.
+7. Your Attributes for the stack view should look like this. 
+
+![Stack View Attributes](./Images/autoLayoutS2.png)
