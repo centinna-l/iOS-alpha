@@ -15,6 +15,7 @@ We will see how to make our first project in xcode. Follow the steps shown below
 
 ![step 3](./Images/firstAppS3.png)
 
+> If you dont have an Apple Developer ID, you can type this in your organisation identifier. `com.yourname`, where **yourname** should be replace with your name in this format -> `com.name`
 4. Once you create the application you will see the following in the general section.
 
 
