@@ -45,7 +45,7 @@ func fibonacciSeries(upto: Int) -> [Int] {
     series.append(a)
     series.append(b)
     
-    while counter < limit {
+    while counter < upto {
         var next = a + b
         series.append(next)
         a = b
