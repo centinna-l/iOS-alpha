@@ -38,16 +38,16 @@ print("\(baseNumber) raised to the power of \(exponentValue) is \(powerResult)")
 
 ```swift
 func fibonacciSeries(upto: Int) -> [Int] {
-    var series = [Int]()
+    var series = [Int]() // create an empty array.
     var counter = 2 // first two values are 0 and 1
     var a = 0
     var b = 1
-    series.append(a)
-    series.append(b)
+    series.append(a) // adding the value of a to the list.
+    series.append(b) // adding the value of b to the list.
     
     while counter < upto {
         var next = a + b
-        series.append(next)
+        series.append(next) // adding the next value to the list.
         a = b
         b = next
         counter += 1
@@ -91,7 +91,7 @@ func isArmstrongNumber(_ number: Int) -> Bool {
     guard number >= 0 else {
         print("Invalid input. Please enter a non-negative integer.")
         return false
-    }
+    } // gaurd is a type of shorthand used for if-else. (It is swift specefic.`ß)
     
     var tempNumber = number
     var numberOfDigits = 0 // we will use this to count the number of digits.
