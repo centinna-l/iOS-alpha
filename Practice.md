@@ -100,7 +100,7 @@ func isArmstrongNumber(_ number: Int) -> Bool {
     var temp = tempNumber // to make a copy to count.
     while temp > 0 {
         numberOfDigits += 1
-        temp /= 10
+        temp /= 10 // remove the last digit. Eg. 153 -> 15 -> 1 -> 0.1 => 0
     }
 
     temp = tempNumber // reinitailize the temp.
