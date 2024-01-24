@@ -158,6 +158,21 @@ default:
 }
 ```
 
+## Guard statement
+
+> `guard` is a control flow statement in Swift that is used to transfer program control out of a scope if a condition is not met. It's particularly useful for improving code readability and reducing the need for nested conditionals.
+
+**Example**
+
+```swift
+guard condition else {
+    // Code to execute if the condition is not met
+    // Must include a transfer of control (return, break, continue, throw, or fatalError)
+}
+// Code to execute if the condition is met
+
+```
+
 
 ## Looping
 

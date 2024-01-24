@@ -91,7 +91,7 @@ func isArmstrongNumber(_ number: Int) -> Bool {
     guard number >= 0 else {
         print("Invalid input. Please enter a non-negative integer.")
         return false
-    } // gaurd is a type of shorthand used for if-else. (It is swift specefic.`ß)
+    } // gaurd is a type of shorthand used for if-else. (It is swift specefic.`ß``)
     
     var tempNumber = number
     var numberOfDigits = 0 // we will use this to count the number of digits.
