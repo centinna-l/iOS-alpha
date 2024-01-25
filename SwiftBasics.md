@@ -173,6 +173,24 @@ guard condition else {
 
 ```
 
+**More Examples**
+
+```swift
+func processInput(_ input: Int) {
+    guard input > 0 else {
+        print("Input must be a positive number.")
+        return
+    }
+    
+    // Code to process the input when it's greater than 0
+    print("Processing input: \(input)")
+}
+
+processInput(10)  // Will process the input
+processInput(-5)  // Will print an error message and return early
+
+```
+
 
 ## Looping
 

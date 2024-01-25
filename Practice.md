@@ -217,3 +217,58 @@ let result = sumOfPrimes(upTo: limit)
 print("Sum of prime numbers up to \(limit): \(result)")
 
 ```
+
+## 25 Jan, 2024
+
+Before Procedding ahead, Read About Closures, and Guard.
+- [Closures](Readme.md#closures)
+- [guard](SwiftBasics.md#guard-statement)
+
+[**Online Compiler**](https://online.swiftplayground.run/)
+
+You can download the playground file from here, and upload it on omnivox.
+
+![PlayGround File Download.](/Images/practiceP1.png)
+
+Complete the following questions shown below.
+*Try using Closures and Guard, wherever possible in the code.*
+
+
+1. Two Sum:
+
+Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution.
+
+> Input: nums = [2, 7, 11, 15], target = 9
+> 
+> Output: [0, 1]
+
+
+2. Write a program that prints the numbers from 1 to 100. But for multiples of three, print "Fizz" instead of the number, and for the multiples of five, print "Buzz". For numbers that are multiples of both three and five, print "FizzBuzz".
+
+> Input: 1 to 15
+> 
+> Output: 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz
+
+3. Counting Elements: Given an array of integers, find and print the count of distinct elements.
+
+> Input: [3, 1, 4, 2, 2, 1, 4]
+> 
+> Output: 4 (distinct elements are 3, 1, 4, 2)
+
+4. Given a binary array, find the maximum number of consecutive 1's.
+
+> Input: [1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1]
+> 
+> Output: 4 (the maximum consecutive ones are in the sequence 1, 1, 1, 1)
+
+5. Implement a function to compute the square root of a given non-negative integer.
+
+> Input: 16 
+> 
+> Output: 4 (since 4 x 4 = 16)
+
+6. Given a sorted array, remove the duplicates in-place such that each element appears only once and return the new length.
+
+> Input: [1, 1, 2, 2, 3, 4, 5, 5, 5]
+> 
+> Output: 5 (the array becomes [1, 2, 3, 4, 5])
