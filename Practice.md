@@ -220,23 +220,21 @@ print("Sum of prime numbers up to \(limit): \(result)")
 
 ## 25 Jan, 2024
 
-Before Procedding ahead, Read About Closures, and Guard.
+Before Procedding ahead, read about Closures, and Guard.
 - [Closures](Readme.md#closures)
 - [guard](SwiftBasics.md#guard-statement)
 
-[**Online Compiler**](https://online.swiftplayground.run/)
+click here -> [**Online Compiler**](https://online.swiftplayground.run/)
 
 You can download the playground file from here, and upload it on omnivox.
 
 ![PlayGround File Download.](/Images/practiceP1.png)
 
-Complete the following questions shown below.
+### Complete the following questions shown below.
 *Try using Closures and Guard, wherever possible in the code.*
 
 
-1. Two Sum:
-
-Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution.
+1. Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution.
 
 > Input: nums = [2, 7, 11, 15], target = 9
 > 
