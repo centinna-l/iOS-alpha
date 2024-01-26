@@ -48,3 +48,16 @@ See the picture below.
 7. Your Attributes for the stack view should look like this. 
 
 ![Stack View Attributes](./Images/autoLayoutS2.png)
+
+
+## Challenge
+
+- If you have completed the Auto Layout Step by Step try completing this UI, for LandScape and Portait Mode.
+
+**Landscape**
+
+![landscape](./Images/autoLayoutCL.png)
+
+**Potrait**
+
+![potrait](./Images/autoLayoutCL.png)
