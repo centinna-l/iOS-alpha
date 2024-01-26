@@ -60,4 +60,4 @@ See the picture below.
 
 **Potrait**
 
-![potrait](./Images/autoLayoutCL.png)
+![potrait](./Images/autoLayoutCP.png)
