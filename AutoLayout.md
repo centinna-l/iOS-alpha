@@ -61,3 +61,17 @@ See the picture below.
 **Potrait**
 
 ![potrait](./Images/autoLayoutCP.png)
+
+### Assets
+
+**Calculator Layout colors**
+
+Below are listed the required color codes.
+
+> *Blue Background* - 1D9BF6
+
+> *Orange background* - FF9300
+
+> *Grey background* - Dark grey color (check the attribute pane)
+
+> *Divide symbol* - ÷ (copy this symbol for the division sign) 
