@@ -800,10 +800,106 @@ print(twoNumberSum(array: array, targetSum: 10))
 ### Struct Practice Questions
 
 1. Create a struct called Rectangle that represents a rectangle with properties width and height. Implement a method to calculate the area of the rectangle.
+```swift
+struct Rectangle {
+    var width: Double
+    var height: Double
+    
+    func calculateArea() -> Double {
+        return width * height
+    }
+}
+
+// Usage
+let rectangle = Rectangle(width: 5.0, height: 3.0)
+let area = rectangle.calculateArea()
+print("Area of the rectangle: \(area)")
+
+```
 2. Define a struct called Song to represent a song with properties title, artist, and durationInSeconds. Implement a method to convert the duration to a readable format (e.g., "3:45" for 3 minutes and 45 seconds).
+```swift
+struct Song {
+    var title: String
+    var artist: String
+    var durationInSeconds: Int
+    
+    func readableDuration() -> String {
+        let minutes = durationInSeconds / 60
+        let seconds = durationInSeconds % 60
+        return "\(minutes):\(String(format: "%02d", seconds))"
+    }
+}
+
+// Usage
+let song = Song(title: "Bohemian Rhapsody", artist: "Queen", durationInSeconds: 345)
+let readableDuration = song.readableDuration()
+print("Readble duration: \(readableDuration)")
+```
 3. Create a struct called Temperature to represent a temperature with properties value and unit (e.g., Celsius or Fahrenheit). Implement methods to convert the temperature from Celsius to Fahrenheit and vice versa.
+```swift
+struct Temperature {
+    var value: Double
+    var unit: String
+    
+    func convertToFahrenheit() -> Double {
+        if unit.lowercased() == "celsius" {
+            return (value * 9/5) + 32
+        }
+        return value
+    }
+    
+    func convertToCelsius() -> Double {
+        if unit.lowercased() == "fahrenheit" {
+            return (value - 32) * 5/9
+        }
+        return value
+    }
+}
+
+// Usage
+let temperature = Temperature(value: 20, unit: "celsius")
+let fahrenheitValue = temperature.convertToFahrenheit()
+print("Temperature in Fahrenheit: \(fahrenheitValue)")
+```
 4. Define a struct called Student with properties name, age, and grade. Implement a method to check if the student is eligible for graduation based on their age and grade (e.g., age >= 18 and grade >= 10).
+```swift
+struct Student {
+    var name: String
+    var age: Int
+    var grade: Int
+    
+    func isEligibleForGraduation() -> Bool {
+        return age >= 18 && grade >= 10
+    }
+}
+
+// Usage
+let student = Student(name: "John", age: 18, grade: 10)
+let isEligible = student.isEligibleForGraduation()
+print("Is student eligible for graduation? \(isEligible)")
+
+```
 5. Create a struct called Car to represent a car with properties make, model, and year. Implement a method to check if the car is a vintage car (i.e., over 25 years old).
+
+```swift
+
+struct Car {
+    var make: String
+    var model: String
+    var year: Int
+    
+    func isVintageCar(currentYear: Int) -> Bool {
+        return currentYear - year > 25
+    }
+}
+
+// Usage
+let car = Car(make: "BMW", model: "X1", year: 2021)
+let currentYear = 2022
+let isVintage = car.isVintageCar(currentYear: currentYear)
+print("Is the car a vintage car? \(isVintage)")
+
+```
 6. Define a struct called BankAccount with properties accountNumber, accountHolder, balance, and transactionHistory. Implement methods to deposit, withdraw, and transfer funds between bank accounts.
 > BankAccount Struct:
 Properties: The BankAccount struct has four properties: accountNumber, accountHolder, balance, and transactionHistory.
@@ -811,6 +907,49 @@ Methods:
 deposit(amount: Double): Adds the specified amount to the account balance and records the transaction in the transaction history.
 withdraw(amount: Double): Subtracts the specified amount from the account balance if sufficient funds are available and records the transaction.
 transfer(amount: Double, to account: BankAccount): Transfers the specified amount from the current account to another account if sufficient funds are available, updating both account balances and recording the transactions.
+
+```swift
+struct BankAccount {
+    var accountNumber: String
+    var accountHolder: String
+    var balance: Double
+    var transactionHistory: [String]
+    
+    mutating func deposit(amount: Double) {
+        balance += amount
+        transactionHistory.append("Deposit: \(amount)")
+    }
+    
+    mutating func withdraw(amount: Double) {
+        if amount <= balance {
+            balance -= amount
+            transactionHistory.append("Withdrawal: \(amount)")
+        } else {
+            print("Insufficient funds.")
+        }
+    }
+    
+    mutating func transfer(amount: Double, to account: inout BankAccount) {
+        if amount <= balance {
+            balance -= amount
+            account.balance += amount
+            transactionHistory.append("Transfer: \(amount) to \(account.accountHolder)")
+            account.transactionHistory.append("Transfer: \(amount) from \(accountHolder)")
+        } else {
+            print("Insufficient funds.")
+        }
+    }
+}
+
+// Usage
+var account1 = BankAccount(accountNumber: "123456", accountHolder: "John", balance: 1000, transactionHistory: [])
+var account2 = BankAccount(accountNumber: "789012", accountHolder: "Alice", balance: 500, transactionHistory: [])
+
+account1.transfer(amount: 200, to: &account2)
+print("Account 1 balance: \(account1.balance)")
+print("Account 2 balance: \(account2.balance)")
+
+```
 7. Create a struct called Employee to represent an employee with properties name, position, salary, and employmentHistory. Implement methods to give a raise, change the employee's position, and track employment history.
 > Employee Struct:
 Properties: The Employee struct represents an employee with properties such as name, position, salary, and employmentHistory.
@@ -823,7 +962,7 @@ Properties: The Flight struct represents a flight with properties such as flight
 Methods:
 calculateDuration(): Calculates the duration of the flight based on the departure and arrival times.
 isDelayed(currentTime: Date): Checks if the flight is delayed based on the current time compared to the scheduled departure time.
-9.  Create a struct called Recipe to represent a recipe with properties title, ingredients, instructions, and rating. Implement methods to add, remove, and update ingredients, as well as to rate the recipe.
+9. Create a struct called Recipe to represent a recipe with properties title, ingredients, instructions, and rating. Implement methods to add, remove, and update ingredients, as well as to rate the recipe.
 > Recipe Struct:
 Properties: The Recipe struct represents a recipe with properties such as title, ingredients, instructions, and rating.
 Methods:
