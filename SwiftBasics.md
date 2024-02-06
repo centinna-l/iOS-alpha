@@ -1,6 +1,46 @@
 # Swift Basics
 
+## Topics Covered
+
+- [Swift Basics](#swift-basics)
+  - [Topics Covered](#topics-covered)
+  - [Variables](#variables)
+  - [Operations](#operations)
+  - [Functions](#functions)
+    - [External Parameter Name](#external-parameter-name)
+    - [Internal Parameter Name](#internal-parameter-name)
+  - [Conditional](#conditional)
+    - [if statement](#if-statement)
+    - [Switch Statements](#switch-statements)
+    - [fallthrough in switch](#fallthrough-in-switch)
+  - [Guard statement](#guard-statement)
+  - [Looping](#looping)
+  - [Arrays](#arrays)
+  - [Dictionary](#dictionary)
+  - [Closures](#closures)
+    - [Syntax](#syntax)
+  - [Null Safety](#null-safety)
+  - [Type Casting](#type-casting)
+  - [Optional Chaining (?)](#optional-chaining-)
+  - [Force Unwrapped with (!)](#force-unwrapped-with-)
+    - [When to use each](#when-to-use-each)
+      - [Use ? when:](#use--when)
+      - [Use ! when:](#use--when-1)
+      - [Caution (Read this!)](#caution-read-this)
+  - [Struct](#struct)
+  - [Essential Functions](#essential-functions)
+    - [Random](#random)
+    - [Play Audio](#play-audio)
+    - [Timer](#timer)
+  - [Practice Questions](#practice-questions)
+    - [Basic Swift Programming questions](#basic-swift-programming-questions)
+    - [Struct Practice Questions](#struct-practice-questions)
+
 ## Variables
+
+**Naming Conventions**
+
+> We use camel casing. ex. imageName, buttonName.
 
 ```swift
 // Variable declaration with type inference
@@ -40,6 +80,26 @@ let firstLetter: Character = "A"
 var anyValue: Any = 42
 var anyObjectValue: AnyObject = "Hello, World!"
 ```
+
+
+
+**Difference b/w var and let**
+
+| **var**                                                                                | **let**                                                                                                            |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Variables declared using var are mutable.                                              | Constants declared using let are immutable.                                                                        |
+| You use var when you need a value that might change during the course of your program. | You use let when you have a value that should not (or cannot) be changed throughout the execution of your program. |
+
+**Choosing Between var and let**
+
+**Use var when:**
+> You expect the value to change or be modified during the execution of your program.
+You are working with variables that represent mutable state.
+
+**Use let when:**
+>You want to ensure that the value remains constant and does not change.
+You are working with constants that represent unchanging values.
+
 
 ## Operations
 
@@ -128,6 +188,8 @@ printMessage("Hello, World!")
 
 ## Conditional
 
+### if statement
+
 ```swift
 let temperature = 25
 
@@ -155,6 +217,29 @@ case "Saturday", "Sunday":
     print("It's a weekend.")
 default:
     print("Invalid day.")
+}
+```
+
+### fallthrough in switch
+
+---
+
+```swift
+let grade = 75
+
+switch grade {
+case 0..<60: // in range questions
+    print("Fail")
+case 60..<70:
+    print("D")
+case 70..<80:
+    print("C")
+case 80..<90:
+    print("B")
+case 90...100:
+    print("A")
+default:
+    print("Invalid grade")
 }
 ```
 
@@ -229,6 +314,87 @@ for (index, day) in weekdays.enumerated() {
 }
 ```
 
+repeat-while Loop:
+
+---
+
+**Ex.**
+
+```swift
+// Example: Repeat-while loop
+var countdown = 5
+repeat {
+    print("Countdown: \(countdown)")
+    countdown -= 1
+} while countdown > 0
+```
+
+
+## Arrays
+
+---
+
+An Array is used to store data in a list.
+
+**Ex.**
+```swift
+var array = [1,2,3,4,5]
+// Note: give symmetrical spaces
+// " = " -> symmetrical space 
+```
+
+## Dictionary
+
+---
+
+A dictionary is a collection type that allows you to store key-value pairs. Each key must be unique within the dictionary, and it maps to a specific value. Here's an example of using dictionaries in Swift
+
+**Ex.**
+
+```swift
+var ages = ["Alice": 28, "Bob": 32, "Charlie": 25, "David": 30]
+
+// Accessing values using keys
+let aliceAge = ages["Alice"]  // 28
+
+// Modifying values
+ages["Bob"] = 33
+
+// Adding a new key-value pair
+ages["Eve"] = 22
+
+// Removing a key-value pair
+ages["David"] = nil
+
+// Iterating over key-value pairs
+for (name, age) in ages {
+    print("\(name) is \(age) years old")
+}
+
+// Checking if a key exists
+if let charlieAge = ages["Charlie"] {
+    print("Charlie's age is \(charlieAge)")
+} else {
+    print("Charlie's age is unknown")
+}
+```
+
+## Closures
+
+Closures are self-contained blocks of functionality that can be assigned to variables, passed as parameters to functions, and returned from functions in Swift. They are similar to functions but have a more concise syntax. Closures capture and store references to variables and constants from the surrounding context in which they are defined, allowing them to access and modify these values even if they are no longer in scope.
+
+### Syntax
+
+```swift
+let myClosure: (Parameters) -> ReturnType = { /* code */ }
+
+// A Basic Example
+let addClosure: (Int, Int) -> Int = { (a, b) in
+    return a + b
+}
+
+let result = addClosure(3, 5)  // result is 8
+```
 
 ## Null Safety
 
@@ -284,19 +450,19 @@ let optionalNumber: Int? = 42
 let unwrappedNumber = optionalNumber!
 ```
 
-## When to use each
+### When to use each
 
-### Use ? when:
+#### Use ? when:
 
 - You want to safely handle optionals without crashing if they are nil.
 - You are chaining multiple optional values, and you want the chain to gracefully handle nil values.
 
-### Use ! when:
+#### Use ! when:
 
 - You are certain that the optional contains a value, and you want to forcefully unwrap it.
 - You've performed necessary checks elsewhere in your code to ensure that the optional is not nil.
 
-### Caution (Read this!)
+#### Caution (Read this!)
 
 > Using ! to force unwrap an optional without proper checks can lead to runtime crashes. It's generally safer to use ? and handle optionals safely, or to use conditional unwrapping with if let or guard let when you can.
 
@@ -309,9 +475,173 @@ if let unwrappedNumber = optionalNumber {
 }
 ```
 
+## Struct
+
+
+A struct (short for structure) is a user-defined data type that encapsulates related properties and behaviors. It's similar to a class but with some key differences, such as value semantics instead of reference semantics. 
+
+```swift
+import foundation
+
+// Define a struct named "Person" to represent a person
+struct Person {
+    var name: String
+    var age: Int
+    var email: String?
+    
+    // Example method to greet the person
+    func greet() {
+        print("Hello, my name is \(name). I am \(age) years old.")
+    }
+}
+
+// Implementation
+// Create an instance of the Person struct
+var person1 = Person(name: "John", age: 30, email: "john@example.com")
+
+// Accessing properties of the struct instance
+print("Name: \(person1.name)")
+print("Age: \(person1.age)")
+if let email = person1.email {
+    print("Email: \(email)")
+} else {
+    print("No email provided.")
+}
+
+// Calling a method of the struct instance
+person1.greet()
+
+// Update properties of the struct instance
+person1.age = 35
+print("Updated age: \(person1.age)")
+```
+
+> Below you will find a complicated example of struct and its implementation
+
+```swift
+import foundation
+
+// Define a struct named "Contact" to represent a contact with multiple properties
+struct Contact {
+    var firstName: String
+    var lastName: String
+    var email: String?
+    var phoneNumber: String
+    
+    // Computed property to get the full name of the contact
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
+    
+    // Method to display contact details
+    func displayDetails() {
+        print("Name: \(fullName)")
+        print("Email: \(email ?? "N/A")")
+        print("Phone Number: \(phoneNumber)")
+    }
+    
+    // Method to send an email to the contact
+    func sendEmail(subject: String, message: String) {
+        if let email = email {
+            print("Sending email to \(fullName) at \(email)")
+            // Code to send email
+        } else {
+            print("No email address available for \(fullName)")
+        }
+    }
+}
+
+// Create an instance of the Contact struct
+var contact1 = Contact(firstName: "John", lastName: "Doe", email: "john@example.com", phoneNumber: "123-456-7890")
+
+// Access and print properties of the contact instance
+print("Full Name: \(contact1.fullName)")
+contact1.displayDetails()
+
+// Update properties of the contact instance
+contact1.email = "john.doe@example.com"
+contact1.phoneNumber = "987-654-3210"
+contact1.displayDetails()
+
+// Call the sendEmail method
+contact1.sendEmail(subject: "Hello", message: "How are you?")
+
+```
+
+## Essential Functions
+
+---
+
+> Here are some of the most essential functions used in Swift, for iOS App Development.
+
+### Random
+
+---
+
+This function is used to generate random numbers from a range
+
+**Ex.**
+```swift
+//   variable      type function lower...upper
+var randomNumber = Int.random(in: 0...10) // will generate a number b/w 0 to 10, with 0 and 10 inclusive
+
+var randomNumerOne = Int.random(in: 0..< 10) // between 0 and 10, with excluding 10
+
+// Getting float.
+var randomFloatNumber = Float.random(in: 0...10) // generate a random float number between 0 and 10.
+
+```
+
+### Play Audio
+
+---
+
+A example to show how to play audio files in ios.
+
+```swift
+import AVFoundation
+
+
+// Rest of the code.
+ 
+ func playSound(title: String?) {
+        let url = Bundle.main.url(forResource: title, withExtension: "wav")
+                
+                player = try! AVAudioPlayer(contentsOf: url!)
+                
+                player?.play()
+
+        
+    }
+
+playSound(title: "alarm_sound")
+```
+
+
+### Timer 
+
+---
+An example to create a count down timer in swift.
+
+```swift
+var timer = Times()
+
+// rest of the code ...
+
+
+timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false){ (Timer) in 
+
+// Do Something here....
+
+}
+
+```
+
 ## Practice Questions
 
 **You can use any input.**
+
+### Basic Swift Programming questions
 
 1. Write a function that takes an array of integers and returns the sum of all even numbers.
 ```swift
@@ -466,3 +796,46 @@ func twoNumberSum(array: [Int], targetSum: Int) -> [Int] {
 print(twoNumberSum(array: array, targetSum: 10))
 
 ```
+
+### Struct Practice Questions
+
+1. Create a struct called Rectangle that represents a rectangle with properties width and height. Implement a method to calculate the area of the rectangle.
+2. Define a struct called Song to represent a song with properties title, artist, and durationInSeconds. Implement a method to convert the duration to a readable format (e.g., "3:45" for 3 minutes and 45 seconds).
+3. Create a struct called Temperature to represent a temperature with properties value and unit (e.g., Celsius or Fahrenheit). Implement methods to convert the temperature from Celsius to Fahrenheit and vice versa.
+4. Define a struct called Student with properties name, age, and grade. Implement a method to check if the student is eligible for graduation based on their age and grade (e.g., age >= 18 and grade >= 10).
+5. Create a struct called Car to represent a car with properties make, model, and year. Implement a method to check if the car is a vintage car (i.e., over 25 years old).
+6. Define a struct called BankAccount with properties accountNumber, accountHolder, balance, and transactionHistory. Implement methods to deposit, withdraw, and transfer funds between bank accounts.
+> BankAccount Struct:
+Properties: The BankAccount struct has four properties: accountNumber, accountHolder, balance, and transactionHistory.
+Methods:
+deposit(amount: Double): Adds the specified amount to the account balance and records the transaction in the transaction history.
+withdraw(amount: Double): Subtracts the specified amount from the account balance if sufficient funds are available and records the transaction.
+transfer(amount: Double, to account: BankAccount): Transfers the specified amount from the current account to another account if sufficient funds are available, updating both account balances and recording the transactions.
+7. Create a struct called Employee to represent an employee with properties name, position, salary, and employmentHistory. Implement methods to give a raise, change the employee's position, and track employment history.
+> Employee Struct:
+Properties: The Employee struct represents an employee with properties such as name, position, salary, and employmentHistory.
+Methods:
+giveRaise(amount: Double): Increases the employee's salary by the specified amount and records the raise in the employment history.
+changePosition(newPosition: String): Updates the employee's position to the specified new position and records the change in the employment history.
+8. Define a struct called Flight to represent a flight with properties flightNumber, departureAirport, arrivalAirport, departureTime, and arrivalTime. Implement methods to calculate the duration of the flight and check if the flight is delayed.
+> Flight Struct:
+Properties: The Flight struct represents a flight with properties such as flightNumber, departureAirport, arrivalAirport, departureTime, and arrivalTime.
+Methods:
+calculateDuration(): Calculates the duration of the flight based on the departure and arrival times.
+isDelayed(currentTime: Date): Checks if the flight is delayed based on the current time compared to the scheduled departure time.
+9.  Create a struct called Recipe to represent a recipe with properties title, ingredients, instructions, and rating. Implement methods to add, remove, and update ingredients, as well as to rate the recipe.
+> Recipe Struct:
+Properties: The Recipe struct represents a recipe with properties such as title, ingredients, instructions, and rating.
+Methods:
+addIngredient(ingredient: String): Adds a new ingredient to the recipe's list of ingredients.
+removeIngredient(ingredient: String): Removes an ingredient from the recipe's list of ingredients.
+updateInstructions(newInstructions: String): Updates the recipe's instructions with the specified new instructions.
+rateRecipe(rating: Int): Records the user's rating for the recipe.
+10. Define a struct called Movie to represent a movie with properties title, director, actors, genre, and releaseYear. Implement methods to add and remove actors, change the genre, and calculate the age of the movie.
+> Movie Struct:
+Properties: The Movie struct represents a movie with properties such as title, director, actors, genre, and releaseYear.
+Methods:
+addActor(actor: String): Adds a new actor to the movie's list of actors.
+removeActor(actor: String): Removes an actor from the movie's list of actors.
+changeGenre(newGenre: String): Updates the movie's genre to the specified new genre.
+calculateAge(currentYear: Int): Calculates the age of the movie based on the release year and the current year.

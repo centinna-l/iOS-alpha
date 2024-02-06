@@ -5,14 +5,35 @@ We will be making an instagram clone with firebase.
 ## Things to Know
 
 1. StoryBoards
-2. TabViewControllers
-3. SceneDelates
-4. UI Elements - Button, Label, textView/TextField etc.
-5. Firebase and its functionalities
-6. Photo Picker
-7. Strong Foundation in Swift.
+2. UserDeafaults
+3. TabViewControllers
+4. SceneDelates
+5. UI Elements - Button, Label, textView/TextField etc.
+6. Firebase and its functionalities
+7. Photo Picker
+8. Strong Foundation in Swift.
 
 
+### User Defaults
+
+> UserDefaults is commonly used to store small pieces of data persistently across app launches. Here's an example of how to use UserDefaults in Swift:
+
+```swift
+let userName = "John Doe"
+// we store it here, and then fetch it inside the viewDidLoad()
+UserDefaults.standard.set(userName, forKey: "userName")
+
+
+// Retrieving data
+if let savedUserName = UserDefaults.standard.string(forKey: "userName") {
+    print("Welcome back, \(savedUserName)!")
+} else {
+    print("No user name saved yet.")
+}
+
+// Delete UserDefaults value for a specific key
+UserDefaults.standard.removeObject(forKey: "userName")
+```
 
 
 ## Photo Picker
