@@ -28,6 +28,7 @@
       - [Use ! when:](#use--when-1)
       - [Caution (Read this!)](#caution-read-this)
   - [Struct](#struct)
+    - [Difference b/w struct and classes](#difference-bw-struct-and-classes)
   - [Essential Functions](#essential-functions)
     - [Random](#random)
     - [Play Audio](#play-audio)
@@ -567,6 +568,18 @@ contact1.displayDetails()
 contact1.sendEmail(subject: "Hello", message: "How are you?")
 
 ```
+
+### Difference b/w struct and classes
+
+we will classes later ...
+
+| **class** | **struct** |
+| ----------| -----------|
+| Classes support Inheritanct| Structures do not support Inheritance|
+| Classes are reference types |Structures are value types |
+| Properties of a class instance can be modified even if the class instance is declared as a constant (using let). | struct instance as a constant means that the entire instance is immutable. |
+| Classes can inherit initializers from their superclass, allowing for convenient initialization of subclasses.| Structures do not inherit initializers from any other type. |
+|Classes support both upcasting and downcasting, allowing you to treat an instance of a subclass as an instance of its superclass (upcasting) or vice versa (downcasting).|Structures do not support inheritance, so typecasting is not applicable to them.|
 
 ## Essential Functions
 
