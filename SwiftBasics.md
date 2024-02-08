@@ -571,7 +571,7 @@ contact1.sendEmail(subject: "Hello", message: "How are you?")
 
 ### Difference b/w struct and classes
 
-we will classes later ...
+we will discuss classes later ...
 
 | **class** | **struct** |
 | ----------| -----------|
