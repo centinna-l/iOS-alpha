@@ -25,6 +25,8 @@ In the upload view follow the example below.
 
 
 ```swift
+
+class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {  // these two should be added.
 // Inside the viewdidload
 
     override func viewDidLoad() {
@@ -50,6 +52,7 @@ In the upload view follow the example below.
         imageView.image = info[.originalImage] as? UIImage
         self.dismiss(animated: true, completion: nil)
     }
+}
 ```
 
 
