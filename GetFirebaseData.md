@@ -35,6 +35,8 @@ import FirebaseStorage // firebase imports
 import FirebaseFirestore // firebase imports
 import SDWebImage // Image library import
 
+// SDWebImage - https://github.com/SDWebImage/SDWebImageSVGKitPlugin.git
+
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource { // these are required.
 
