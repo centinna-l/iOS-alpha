@@ -61,20 +61,20 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
 ```swift
 // Inside the button click
 
-    var images: [String] = []
-    @IBAction func actionButtonPressed(_ sender: UIButton) {
-        print(sender.currentTitle ?? "Button Clicked")
-        let storage = Storage.storage()
-        let reference = storage.reference()
+var images: [String] = []
+@IBAction func actionButtonPressed(_ sender: UIButton) {
+    print(sender.currentTitle ?? "Button Clicked")
+    let storage = Storage.storage()
+    let reference = storage.reference()
         
-        let mediaFolder = reference.child("media") // get the reference for the media folder in firebase storage.
+    let mediaFolder = reference.child("media") // get the reference for the media folder in firebase storage.
         
         // we need to convert the image to a buffer type.
-        if let buffer = imageView.image?.jpegData(compressionQuality: 0.5) {
-            let uuid = UUID().uuidString
-            let imageReference = mediaFolder.child("\(uuid).jpg")
-            imageReference.putData(buffer){
-                ( metaData, error) in
+    if let buffer = imageView.image?.jpegData(compressionQuality: 0.5) {
+        let uuid = UUID().uuidString
+        let imageReference = mediaFolder.child("\(uuid).jpg")
+        imageReference.putData(buffer){
+            (metaData, error) in
                 if error != nil {
                     print(error?.localizedDescription ?? "Something went wrong.")
                     self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Firebase: Something went wrong.")
@@ -83,14 +83,14 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                         ( url, error) in
                         if error == nil {
                             let imageUrl = url?.absoluteString
-                            images.append(imageUrl)
+                            self.images.append(imageUrl)
                             self.makeAlert(title: "Success", message: "Image Uploaded Successfully")
-                        }
-                    }
                 }
             }
         }
     }
+}
+}
 ```
 
 ### Alert Function

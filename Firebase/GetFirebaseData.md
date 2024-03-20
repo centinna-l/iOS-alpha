@@ -12,17 +12,17 @@ It is an UIElement, which loops through the list of data from firebase and shows
 ### StoryBoard
 
 > This is the overview of the UI
-![FeedViewStoryBoard](./Images/FeedViewStoryBoard.png)
+![FeedViewStoryBoard](../Images/FeedViewStoryBoard.png)
 
 > Once we create the UI we need to create a **cocoa touch file** to link the **cell** to a **new controller file**. Here is the code for **[FeedViewCell.swift](./GetFirebaseData.md#feedviewcellswift)**
 
 
-![FeedViewCell](./Images/FeedCellOverview.png)
+![FeedViewCell](../Images/FeedOverview.png)
 
 > This is the structure of the **TableView** and the **cell**
 
 
-![FeedViewOverview](./Images/FeedOverview.png)
+![FeedViewOverview](../Images/FeedOverview.png)
 
 
 ### FeedController.swift
