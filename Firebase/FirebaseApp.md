@@ -6,3 +6,4 @@
 1. [FirebaseAuth](./FirebaseAuth.md)
 2. [UploadData](./UploadDataFirebase.md)
 3. [GetData](./GetFirebaseData.md)
+4. [FinalTouches](./FinalTouches.md)
