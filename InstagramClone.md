@@ -2,6 +2,8 @@
 
 We will be making an instagram clone with firebase.
 
+> Follow the code from [here](./Firebase/FirebaseApp.md)
+
 ## Things to Know
 
 1. StoryBoards
