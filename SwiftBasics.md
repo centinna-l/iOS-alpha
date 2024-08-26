@@ -134,6 +134,9 @@ print(formattedPrice)
 
 ```swift
 // Logical Operators.
+// 1. An example of how we check if the user can pay or not?
+// Logic: For this to happen, the user should be logged In and
+//        should have card details
 
 var isLoggedIn: Bool = false
 
