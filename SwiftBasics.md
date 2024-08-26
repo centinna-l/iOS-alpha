@@ -1,9 +1,9 @@
 # Swift Basics
 
-## Topics Covered
+## Topics Coveredx
 
 - [Swift Basics](#swift-basics)
-  - [Topics Covered](#topics-covered)
+  - [Topics Coveredx](#topics-coveredx)
   - [Variables](#variables)
   - [Operations](#operations)
   - [Functions](#functions)
@@ -82,8 +82,6 @@ var anyValue: Any = 42
 var anyObjectValue: AnyObject = "Hello, World!"
 ```
 
-
-
 **Difference b/w var and let**
 
 | **var**                                                                                | **let**                                                                                                            |
@@ -94,13 +92,14 @@ var anyObjectValue: AnyObject = "Hello, World!"
 **Choosing Between var and let**
 
 **Use var when:**
+
 > You expect the value to change or be modified during the execution of your program.
-You are working with variables that represent mutable state.
+> You are working with variables that represent mutable state.
 
 **Use let when:**
->You want to ensure that the value remains constant and does not change.
-You are working with constants that represent unchanging values.
 
+> You want to ensure that the value remains constant and does not change.
+> You are working with constants that represent unchanging values.
 
 ## Operations
 
@@ -143,7 +142,7 @@ greet(person: "Alice")
 
 **Definition:** The name used when calling the function.
 **Purpose:** It enhances readability and provides context when calling the function.
-**Default:** If not explicitly provided, the external name is the same as the internal name (except when using an underscore _).
+**Default:** If not explicitly provided, the external name is the same as the internal name (except when using an underscore \_).
 
 ### Internal Parameter Name
 
@@ -185,7 +184,6 @@ printMessage("Hello, World!")
 
 
 ```
-
 
 ## Conditional
 
@@ -267,7 +265,7 @@ func processInput(_ input: Int) {
         print("Input must be a positive number.")
         return
     }
-    
+
     // Code to process the input when it's greater than 0
     print("Processing input: \(input)")
 }
@@ -276,7 +274,6 @@ processInput(10)  // Will process the input
 processInput(-5)  // Will print an error message and return early
 
 ```
-
 
 ## Looping
 
@@ -330,7 +327,6 @@ repeat {
 } while countdown > 0
 ```
 
-
 ## Arrays
 
 ---
@@ -338,10 +334,33 @@ repeat {
 An Array is used to store data in a list.
 
 **Ex.**
+
 ```swift
 var array = [1,2,3,4,5]
 // Note: give symmetrical spaces
-// " = " -> symmetrical space 
+// " = " -> symmetrical space
+
+var marvelHeros: [String] = ["Iron Man", "Spider-Man", "Capt. America"]
+
+// Another way
+var dcHeros: Array<String> = Array<String>()
+
+// Different Methods available
+marvelHeros.count
+marvelHeros.isEmpty
+
+marvelHeros[0]
+marvelHeros[0] = "Thor"
+print(marvelHeros)
+
+marvelHeros.append("Wanda") // at the end of it.
+
+marvelHeros.insert("DeadPool", at: 0)
+
+marvelHeros.sort() // makes a copy and stores it
+marvelHeros.reverse() // makes a copy and stores it
+marvelHeros.sorted() // op done in the same array
+marvelHeros.reversed() // op done in same array
 ```
 
 ## Dictionary
@@ -426,7 +445,6 @@ let stringValue: Any = "123"
 let optionalInt = stringValue as? Int
 ```
 
-
 ## Optional Chaining (?)
 
 **Purpose:** Used to safely unwrap optionals and to chain multiple optional values.
@@ -445,6 +463,25 @@ let count = optionalString?.count
 **Effect:** If the optional is nil and you force unwrap it with !, a runtime crash will occur.
 
 ```swift
+// Optional
+var userCity: String? // may be nil
+var accountActive: Bool? // may be nil
+
+// Forced Unwrapping
+
+print(userCity!) // we use ! for forcefully unwrapping.
+
+
+// Optional Binding
+
+var username: String? = "Jerry"
+
+if let unwrappedUsername = username {
+    print("Hello, \(unwrappedUsername)!")
+} else {
+    print("Username is nil.")
+}
+
 let optionalNumber: Int? = 42
 
 // Forcefully unwrapping the optional (assuming we are sure it's not nil)
@@ -463,12 +500,14 @@ let unwrappedNumber = optionalNumber!
 - You are certain that the optional contains a value, and you want to forcefully unwrap it.
 - You've performed necessary checks elsewhere in your code to ensure that the optional is not nil.
 
+> Note: It is recommened to use this as a last resort, or unless you know there will be some specified data.
+
 #### Caution (Read this!)
 
 > Using ! to force unwrap an optional without proper checks can lead to runtime crashes. It's generally safer to use ? and handle optionals safely, or to use conditional unwrapping with if let or guard let when you can.
 
-
 ```swift
+// Optional Binding
 if let unwrappedNumber = optionalNumber {
     // Use unwrappedNumber safely
 } else {
@@ -478,8 +517,7 @@ if let unwrappedNumber = optionalNumber {
 
 ## Struct
 
-
-A struct (short for structure) is a user-defined data type that encapsulates related properties and behaviors. It's similar to a class but with some key differences, such as value semantics instead of reference semantics. 
+A struct (short for structure) is a user-defined data type that encapsulates related properties and behaviors. It's similar to a class but with some key differences, such as value semantics instead of reference semantics.
 
 ```swift
 import foundation
@@ -489,7 +527,7 @@ struct Person {
     var name: String
     var age: Int
     var email: String?
-    
+
     // Example method to greet the person
     func greet() {
         print("Hello, my name is \(name). I am \(age) years old.")
@@ -528,19 +566,19 @@ struct Contact {
     var lastName: String
     var email: String?
     var phoneNumber: String
-    
+
     // Computed property to get the full name of the contact
     var fullName: String {
         return "\(firstName) \(lastName)"
     }
-    
+
     // Method to display contact details
     func displayDetails() {
         print("Name: \(fullName)")
         print("Email: \(email ?? "N/A")")
         print("Phone Number: \(phoneNumber)")
     }
-    
+
     // Method to send an email to the contact
     func sendEmail(subject: String, message: String) {
         if let email = email {
@@ -573,13 +611,13 @@ contact1.sendEmail(subject: "Hello", message: "How are you?")
 
 we will discuss classes later ...
 
-| **class** | **struct** |
-| ----------| -----------|
-| Classes support Inheritanct| Structures do not support Inheritance|
-| Classes are reference types |Structures are value types |
-| Properties of a class instance can be modified even if the class instance is declared as a constant (using let). | struct instance as a constant means that the entire instance is immutable. |
-| Classes can inherit initializers from their superclass, allowing for convenient initialization of subclasses.| Structures do not inherit initializers from any other type. |
-|Classes support both upcasting and downcasting, allowing you to treat an instance of a subclass as an instance of its superclass (upcasting) or vice versa (downcasting).|Structures do not support inheritance, so typecasting is not applicable to them.|
+| **class**                                                                                                                                                                 | **struct**                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Classes support Inheritance                                                                                                                                               | Structures do not support Inheritance                                            |
+| Classes are reference types                                                                                                                                               | Structures are value types                                                       |
+| Properties of a class instance can be modified even if the class instance is declared as a constant (using let).                                                          | struct instance as a constant means that the entire instance is immutable.       |
+| Classes can inherit initializers from their superclass, allowing for convenient initialization of subclasses.                                                             | Structures do not inherit initializers from any other type.                      |
+| Classes support both upcasting and downcasting, allowing you to treat an instance of a subclass as an instance of its superclass (upcasting) or vice versa (downcasting). | Structures do not support inheritance, so typecasting is not applicable to them. |
 
 ## Essential Functions
 
@@ -594,6 +632,7 @@ we will discuss classes later ...
 This function is used to generate random numbers from a range
 
 **Ex.**
+
 ```swift
 //   variable      type function lower...upper
 var randomNumber = Int.random(in: 0...10) // will generate a number b/w 0 to 10, with 0 and 10 inclusive
@@ -616,24 +655,24 @@ import AVFoundation
 
 
 // Rest of the code.
- 
+
  func playSound(title: String?) {
         let url = Bundle.main.url(forResource: title, withExtension: "wav")
-                
+
                 player = try! AVAudioPlayer(contentsOf: url!)
-                
+
                 player?.play()
 
-        
+
     }
 
 playSound(title: "alarm_sound")
 ```
 
-
-### Timer 
+### Timer
 
 ---
+
 An example to create a count down timer in swift.
 
 ```swift
@@ -642,7 +681,7 @@ var timer = Times()
 // rest of the code ...
 
 
-timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false){ (Timer) in 
+timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false){ (Timer) in
 
 // Do Something here....
 
@@ -657,6 +696,7 @@ timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false){ (Timer) in
 ### Basic Swift Programming questions
 
 1. Write a function that takes an array of integers and returns the sum of all even numbers.
+
 ```swift
 let evenOrOdd: (Int) -> Bool = { ( num) in
     return num % 2 == 0 ? true : false
@@ -668,13 +708,13 @@ func sumOfEvenNumbers(_ numbers: [Int]) -> Int {
     //Method 2
     func sumOfEvenNumbers(_ numbers: [Int]) -> Int {
     var sum = 0
-    
+
     for number in numbers {
         if evenOrOdd(number) {
             sum += number
         }
     }
-    
+
     return sum
 }
 }
@@ -683,7 +723,9 @@ let numbersArray = [2, 5, 8, 11, 4, 7, 10]
 let result = sumOfEvenNumbers(numbersArray)
 print("Sum of even numbers: \(result)")
 ```
+
 2. Write a function to calculate the factorial of a given number.
+
 ```swift
 func factorial(_ n: Int) -> Int {
     if n == 0 || n == 1 {
@@ -697,15 +739,17 @@ let n = 5
 let result = factorial(n)
 print("Factorial of \(n): \(result)")
 ```
+
 3. Write a function to check if a given string is a palindrome.
+
 ```swift
 func reverseString(_ input: String) -> String {
     var reversed = ""
-    
+
     for char in input.lowercased() {
         reversed = String(char) + reversed
     }
-    
+
     return reversed
 }
 func isPalindrome(_ str: String) -> Bool {
@@ -717,7 +761,9 @@ let word = "level"
 let isPalindromeResult = isPalindrome(word)
 print("\(word) is a palindrome: \(isPalindromeResult)")
 ```
+
 4. Write a function to check if a given number is prime.
+
 ```swift
 
 func isPrime(_ number: Int) -> Bool {
@@ -737,16 +783,16 @@ let isPrimeResult = isPrime(num)
 print("\(num) is a prime number: \(isPrimeResult)")
 ```
 
-
 5. Write a function to reverse a given string.
+
 ```swift
 func reverseString(_ input: String) -> String {
     var reversed = ""
-    
+
     for char in input.lowercased() {
         reversed = String(char) + reversed
     }
-    
+
     return reversed
 }
 
@@ -754,7 +800,9 @@ let originalString = "Swift Programming"
 let reversedString = reverseString(originalString)
 print("Original: \(originalString)\nReversed: \(reversedString)")
 ```
+
 6. Write a function that takes an array of integers and returns the maximum number.
+
 ```swift
 func findMaxNumber(_ numbers: [Int]) -> Int? {
     return numbers.max()
@@ -767,7 +815,9 @@ if let maxNumber = findMaxNumber(numbersArray) {
     print("The array is empty.")
 }
 ```
+
 7. Write a function that counts the occurrences of each element in an array.
+
 ```swift
 func countOccurrences(_ array: [String]) -> [String: Int] {
     var counts: [String: Int] = [:]
@@ -785,6 +835,7 @@ print("Element occurrences: \(occurrences)")
 ```
 
 8. Two Number Sum Problem
+
 ```swift
 let array = [3,5,-4,8,11,1,-1,6]
 
@@ -813,11 +864,12 @@ print(twoNumberSum(array: array, targetSum: 10))
 ### Struct Practice Questions
 
 1. Create a struct called Rectangle that represents a rectangle with properties width and height. Implement a method to calculate the area of the rectangle.
+
 ```swift
 struct Rectangle {
     var width: Double
     var height: Double
-    
+
     func calculateArea() -> Double {
         return width * height
     }
@@ -829,13 +881,15 @@ let area = rectangle.calculateArea()
 print("Area of the rectangle: \(area)")
 
 ```
+
 2. Define a struct called Song to represent a song with properties title, artist, and durationInSeconds. Implement a method to convert the duration to a readable format (e.g., "3:45" for 3 minutes and 45 seconds).
+
 ```swift
 struct Song {
     var title: String
     var artist: String
     var durationInSeconds: Int
-    
+
     func readableDuration() -> String {
         let minutes = durationInSeconds / 60
         let seconds = durationInSeconds % 60
@@ -848,19 +902,21 @@ let song = Song(title: "Bohemian Rhapsody", artist: "Queen", durationInSeconds: 
 let readableDuration = song.readableDuration()
 print("Readble duration: \(readableDuration)")
 ```
+
 3. Create a struct called Temperature to represent a temperature with properties value and unit (e.g., Celsius or Fahrenheit). Implement methods to convert the temperature from Celsius to Fahrenheit and vice versa.
+
 ```swift
 struct Temperature {
     var value: Double
     var unit: String
-    
+
     func convertToFahrenheit() -> Double {
         if unit.lowercased() == "celsius" {
             return (value * 9/5) + 32
         }
         return value
     }
-    
+
     func convertToCelsius() -> Double {
         if unit.lowercased() == "fahrenheit" {
             return (value - 32) * 5/9
@@ -874,13 +930,15 @@ let temperature = Temperature(value: 20, unit: "celsius")
 let fahrenheitValue = temperature.convertToFahrenheit()
 print("Temperature in Fahrenheit: \(fahrenheitValue)")
 ```
+
 4. Define a struct called Student with properties name, age, and grade. Implement a method to check if the student is eligible for graduation based on their age and grade (e.g., age >= 18 and grade >= 10).
+
 ```swift
 struct Student {
     var name: String
     var age: Int
     var grade: Int
-    
+
     func isEligibleForGraduation() -> Bool {
         return age >= 18 && grade >= 10
     }
@@ -892,6 +950,7 @@ let isEligible = student.isEligibleForGraduation()
 print("Is student eligible for graduation? \(isEligible)")
 
 ```
+
 5. Create a struct called Car to represent a car with properties make, model, and year. Implement a method to check if the car is a vintage car (i.e., over 25 years old).
 
 ```swift
@@ -900,7 +959,7 @@ struct Car {
     var make: String
     var model: String
     var year: Int
-    
+
     func isVintageCar(currentYear: Int) -> Bool {
         return currentYear - year > 25
     }
@@ -913,13 +972,14 @@ let isVintage = car.isVintageCar(currentYear: currentYear)
 print("Is the car a vintage car? \(isVintage)")
 
 ```
+
 6. Define a struct called BankAccount with properties accountNumber, accountHolder, balance, and transactionHistory. Implement methods to deposit, withdraw, and transfer funds between bank accounts.
-> BankAccount Struct:
-Properties: The BankAccount struct has four properties: accountNumber, accountHolder, balance, and transactionHistory.
-Methods:
-deposit(amount: Double): Adds the specified amount to the account balance and records the transaction in the transaction history.
-withdraw(amount: Double): Subtracts the specified amount from the account balance if sufficient funds are available and records the transaction.
-transfer(amount: Double, to account: BankAccount): Transfers the specified amount from the current account to another account if sufficient funds are available, updating both account balances and recording the transactions.
+   > BankAccount Struct:
+   > Properties: The BankAccount struct has four properties: accountNumber, accountHolder, balance, and transactionHistory.
+   > Methods:
+   > deposit(amount: Double): Adds the specified amount to the account balance and records the transaction in the transaction history.
+   > withdraw(amount: Double): Subtracts the specified amount from the account balance if sufficient funds are available and records the transaction.
+   > transfer(amount: Double, to account: BankAccount): Transfers the specified amount from the current account to another account if sufficient funds are available, updating both account balances and recording the transactions.
 
 ```swift
 struct BankAccount {
@@ -927,12 +987,12 @@ struct BankAccount {
     var accountHolder: String
     var balance: Double
     var transactionHistory: [String]
-    
+
     mutating func deposit(amount: Double) {
         balance += amount
         transactionHistory.append("Deposit: \(amount)")
     }
-    
+
     mutating func withdraw(amount: Double) {
         if amount <= balance {
             balance -= amount
@@ -941,7 +1001,7 @@ struct BankAccount {
             print("Insufficient funds.")
         }
     }
-    
+
     mutating func transfer(amount: Double, to account: inout BankAccount) {
         if amount <= balance {
             balance -= amount
@@ -963,31 +1023,32 @@ print("Account 1 balance: \(account1.balance)")
 print("Account 2 balance: \(account2.balance)")
 
 ```
+
 7. Create a struct called Employee to represent an employee with properties name, position, salary, and employmentHistory. Implement methods to give a raise, change the employee's position, and track employment history.
-> Employee Struct:
-Properties: The Employee struct represents an employee with properties such as name, position, salary, and employmentHistory.
-Methods:
-giveRaise(amount: Double): Increases the employee's salary by the specified amount and records the raise in the employment history.
-changePosition(newPosition: String): Updates the employee's position to the specified new position and records the change in the employment history.
+   > Employee Struct:
+   > Properties: The Employee struct represents an employee with properties such as name, position, salary, and employmentHistory.
+   > Methods:
+   > giveRaise(amount: Double): Increases the employee's salary by the specified amount and records the raise in the employment history.
+   > changePosition(newPosition: String): Updates the employee's position to the specified new position and records the change in the employment history.
 8. Define a struct called Flight to represent a flight with properties flightNumber, departureAirport, arrivalAirport, departureTime, and arrivalTime. Implement methods to calculate the duration of the flight and check if the flight is delayed.
-> Flight Struct:
-Properties: The Flight struct represents a flight with properties such as flightNumber, departureAirport, arrivalAirport, departureTime, and arrivalTime.
-Methods:
-calculateDuration(): Calculates the duration of the flight based on the departure and arrival times.
-isDelayed(currentTime: Date): Checks if the flight is delayed based on the current time compared to the scheduled departure time.
+   > Flight Struct:
+   > Properties: The Flight struct represents a flight with properties such as flightNumber, departureAirport, arrivalAirport, departureTime, and arrivalTime.
+   > Methods:
+   > calculateDuration(): Calculates the duration of the flight based on the departure and arrival times.
+   > isDelayed(currentTime: Date): Checks if the flight is delayed based on the current time compared to the scheduled departure time.
 9. Create a struct called Recipe to represent a recipe with properties title, ingredients, instructions, and rating. Implement methods to add, remove, and update ingredients, as well as to rate the recipe.
-> Recipe Struct:
-Properties: The Recipe struct represents a recipe with properties such as title, ingredients, instructions, and rating.
-Methods:
-addIngredient(ingredient: String): Adds a new ingredient to the recipe's list of ingredients.
-removeIngredient(ingredient: String): Removes an ingredient from the recipe's list of ingredients.
-updateInstructions(newInstructions: String): Updates the recipe's instructions with the specified new instructions.
-rateRecipe(rating: Int): Records the user's rating for the recipe.
+   > Recipe Struct:
+   > Properties: The Recipe struct represents a recipe with properties such as title, ingredients, instructions, and rating.
+   > Methods:
+   > addIngredient(ingredient: String): Adds a new ingredient to the recipe's list of ingredients.
+   > removeIngredient(ingredient: String): Removes an ingredient from the recipe's list of ingredients.
+   > updateInstructions(newInstructions: String): Updates the recipe's instructions with the specified new instructions.
+   > rateRecipe(rating: Int): Records the user's rating for the recipe.
 10. Define a struct called Movie to represent a movie with properties title, director, actors, genre, and releaseYear. Implement methods to add and remove actors, change the genre, and calculate the age of the movie.
-> Movie Struct:
-Properties: The Movie struct represents a movie with properties such as title, director, actors, genre, and releaseYear.
-Methods:
-addActor(actor: String): Adds a new actor to the movie's list of actors.
-removeActor(actor: String): Removes an actor from the movie's list of actors.
-changeGenre(newGenre: String): Updates the movie's genre to the specified new genre.
-calculateAge(currentYear: Int): Calculates the age of the movie based on the release year and the current year.
+    > Movie Struct:
+    > Properties: The Movie struct represents a movie with properties such as title, director, actors, genre, and releaseYear.
+    > Methods:
+    > addActor(actor: String): Adds a new actor to the movie's list of actors.
+    > removeActor(actor: String): Removes an actor from the movie's list of actors.
+    > changeGenre(newGenre: String): Updates the movie's genre to the specified new genre.
+    > calculateAge(currentYear: Int): Calculates the age of the movie based on the release year and the current year.
