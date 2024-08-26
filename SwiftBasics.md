@@ -5,6 +5,8 @@
 - [Swift Basics](#swift-basics)
   - [Topics Coveredx](#topics-coveredx)
   - [Variables](#variables)
+  - [Strings](#strings)
+  - [Logical Operators](#logical-operators)
   - [Operations](#operations)
   - [Functions](#functions)
     - [External Parameter Name](#external-parameter-name)
@@ -100,6 +102,49 @@ var anyObjectValue: AnyObject = "Hello, World!"
 
 > You want to ensure that the value remains constant and does not change.
 > You are working with constants that represent unchanging values.
+
+## Strings
+
+```swift
+let greeting = "Hello, World!"
+print(greeting)
+
+
+// String Interpolation
+let name = "Jerry"
+let age = 25
+let message = "My name is \(name) and I am \(age) years old."
+print(message)
+
+// Different Methods
+print(message.contains("p"))
+print(message.count)
+print(message.isEmpty)
+print(message.split(separator: ",", omittingEmptySubsequences: false))
+
+
+
+// Formatting with decimal
+let price = 9.99
+let formattedPrice = String(format: "The price is $%.2f", price)
+print(formattedPrice)
+```
+
+## Logical Operators
+
+```swift
+// Logical Operators.
+
+var isLoggedIn: Bool = false
+
+isLoggedIn = !isLoggedIn
+
+var cardDetails = true
+
+var canPay = isLoggedIn && cardDetails
+print(canPay)
+
+```
 
 ## Operations
 
