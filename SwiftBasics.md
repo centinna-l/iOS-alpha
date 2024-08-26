@@ -8,9 +8,6 @@
   - [Strings](#strings)
   - [Logical Operators](#logical-operators)
   - [Operations](#operations)
-  - [Functions](#functions)
-    - [External Parameter Name](#external-parameter-name)
-    - [Internal Parameter Name](#internal-parameter-name)
   - [Conditional](#conditional)
     - [if statement](#if-statement)
     - [Switch Statements](#switch-statements)
@@ -19,6 +16,9 @@
   - [Looping](#looping)
   - [Arrays](#arrays)
   - [Dictionary](#dictionary)
+  - [Functions](#functions)
+    - [External Parameter Name](#external-parameter-name)
+    - [Internal Parameter Name](#internal-parameter-name)
   - [Closures](#closures)
     - [Syntax](#syntax)
   - [Null Safety](#null-safety)
@@ -160,77 +160,6 @@ let quotient = 8 / 2
 
 // Modulo operator
 let remainder = 9 % 4
-```
-
-## Functions
-
-```swift
-// Function with no parameters and no return value
-func greet() {
-    print("Hello!")
-}
-
-// Function with parameters and a return value
-func add(_ a: Int, _ b: Int) -> Int {
-    return a + b
-}
-
-// Function with external and internal parameter names
-func greet(person name: String) {
-    print("Hello, \(name)!")
-}
-
-// Calling functions
-greet()
-let sum = add(3, 5)
-greet(person: "Alice")
-```
-
-### External Parameter Name
-
-**Definition:** The name used when calling the function.
-**Purpose:** It enhances readability and provides context when calling the function.
-**Default:** If not explicitly provided, the external name is the same as the internal name (except when using an underscore \_).
-
-### Internal Parameter Name
-
-**Definition:** The name used for a parameter within the function body.
-**Purpose:** It's used for reference and manipulation of the parameter's value within the function.
-**Default:** If no external name is provided, the internal name is also used as the external name.
-
-```swift
-// Internal
-func calculateSum(of numbers: [Int]) -> Int {
-    return numbers.reduce(0, +)
-}
-// In this example, numbers is the internal parameter name. It's used within the function body to refer to the array of integers.
-
-// External
-
-let numbers = [1, 2, 3, 4, 5]
-let sum = calculateSum(of: numbers)
-
-// In this example, of is the external parameter name. It provides clarity when calling the function and makes the purpose of the parameter more evident.
-
-// Using explicitly
-// Using external names explicitly
-func greet(person name: String, from city: String) {
-    print("Hello, \(name) from \(city)!")
-}
-
-greet(person: "Alice", from: "New York")
-
-// Default Behaviour
-// no external name is provided
-func printMessage(_ message: String) {
-    print(message)
-}
-
-printMessage("Hello, World!")
-
-// In this example, _ is used as the external name, meaning that when calling the function, you don't need to specify a name for the parameter:
-
-
 ```
 
 ## Conditional
@@ -445,6 +374,77 @@ if let charlieAge = ages["Charlie"] {
 } else {
     print("Charlie's age is unknown")
 }
+```
+
+## Functions
+
+```swift
+// Function with no parameters and no return value
+func greet() {
+    print("Hello!")
+}
+
+// Function with parameters and a return value
+func add(_ a: Int, _ b: Int) -> Int {
+    return a + b
+}
+
+// Function with external and internal parameter names
+func greet(person name: String) {
+    print("Hello, \(name)!")
+}
+
+// Calling functions
+greet()
+let sum = add(3, 5)
+greet(person: "Alice")
+```
+
+### External Parameter Name
+
+**Definition:** The name used when calling the function.
+**Purpose:** It enhances readability and provides context when calling the function.
+**Default:** If not explicitly provided, the external name is the same as the internal name (except when using an underscore \_).
+
+### Internal Parameter Name
+
+**Definition:** The name used for a parameter within the function body.
+**Purpose:** It's used for reference and manipulation of the parameter's value within the function.
+**Default:** If no external name is provided, the internal name is also used as the external name.
+
+```swift
+// Internal
+func calculateSum(of numbers: [Int]) -> Int {
+    return numbers.reduce(0, +)
+}
+// In this example, numbers is the internal parameter name. It's used within the function body to refer to the array of integers.
+
+// External
+
+let numbers = [1, 2, 3, 4, 5]
+let sum = calculateSum(of: numbers)
+
+// In this example, of is the external parameter name. It provides clarity when calling the function and makes the purpose of the parameter more evident.
+
+// Using explicitly
+// Using external names explicitly
+func greet(person name: String, from city: String) {
+    print("Hello, \(name) from \(city)!")
+}
+
+greet(person: "Alice", from: "New York")
+
+// Default Behaviour
+// no external name is provided
+func printMessage(_ message: String) {
+    print(message)
+}
+
+printMessage("Hello, World!")
+
+// In this example, _ is used as the external name, meaning that when calling the function, you don't need to specify a name for the parameter:
+
+
 ```
 
 ## Closures
