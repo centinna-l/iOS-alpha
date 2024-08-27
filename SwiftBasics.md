@@ -354,8 +354,21 @@ var ages = ["Alice": 28, "Bob": 32, "Charlie": 25, "David": 30]
 // Accessing values using keys
 let aliceAge = ages["Alice"]  // 28
 
+var youtubeVideos: [String: Int] = [
+    "react_couse": 1122,
+    "angular_course": 3344,
+    "node_js_course": 5566
+]
+
+var angularVideo = youtubeVideos["angular_course"]
+
+var keys = [String](youtubeVideos.keys)
+
 // Modifying values
 ages["Bob"] = 33
+
+// Another way
+var nodejsId = youtubeVideos.updateValue(4565, forKey: "node_js_course") // will return the old value.
 
 // Adding a new key-value pair
 ages["Eve"] = 22
@@ -398,6 +411,29 @@ func greet(person name: String) {
 greet()
 let sum = add(3, 5)
 greet(person: "Alice")
+
+
+// return multiple elements
+func avengersMovie() -> (String, String) {
+    return ("Ironman", "Spiderman")
+}
+
+print(avengersMovie()) // ("Ironman", "Spiderman")
+
+print(avengersMovie().0) // Ironman
+print(avengersMovie().1) // Spiderman
+
+// Use function as a variable type
+// It is a type of closure.
+func add(a: Int, b:Int) -> Int {
+    return a+b
+}
+
+var addition: (Int, Int) -> Int = add
+
+
+print("10 + 90 = \(addition(10,90))")
+
 ```
 
 ### External Parameter Name
