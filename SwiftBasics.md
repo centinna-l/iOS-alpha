@@ -1,9 +1,9 @@
 # Swift Basics
 
-## Topics Coveredx
+## Topics Covered
 
 - [Swift Basics](#swift-basics)
-  - [Topics Coveredx](#topics-coveredx)
+  - [Topics Covered](#topics-covered)
   - [Variables](#variables)
   - [Strings](#strings)
   - [Logical Operators](#logical-operators)
