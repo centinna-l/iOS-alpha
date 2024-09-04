@@ -691,6 +691,8 @@ contact1.sendEmail(subject: "Hello", message: "How are you?")
 
 ```
 
+> More examples can be found [here](structExamples.md#struct-examples).
+
 ### Difference b/w struct and classes
 
 we will discuss classes later ...
