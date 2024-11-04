@@ -1,6 +1,6 @@
 # Swift UI Practice
 
-1. Make the UI using pen and paper, or in your IPad.
+1. Basic Profile Card UI
 
 ```swift
 import swiftui
@@ -28,7 +28,7 @@ struct ProfileCardView: View {
 }
 ```
 
-2. Make the UI using pen and paper, or in your IPad.
+2. List with Search Functionality
 
 ```swift
 import SwiftUI
@@ -60,7 +60,7 @@ struct SearchableListView: View {
 }
 ```
 
-3. Make the UI using pen and paper, or in your IPad.
+3. E-Commerce Product Card with Add-to-Cart Button
 
 ```swift
 import SwiftUI
@@ -107,7 +107,7 @@ struct ProductCardView: View {
 }
 ```
 
-4. Make the UI using pen and paper, or in your IPad.
+4. Shopping Cart UI with Total Price Calculation
 
 ```swift
 import SwiftUI
@@ -157,7 +157,7 @@ struct ShoppingCartView: View {
 }
 ```
 
-5. Make the UI using pen and paper, or in your IPad.
+5. Complex Form with Validation and Error Messages
 
 ```swift
 import SwiftUI
