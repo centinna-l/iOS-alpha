@@ -1,5 +1,7 @@
 # Swift UI Practice
 
+> Use Pen and Paper or an Ipad to visualise and draw the UI.
+
 1. Basic Profile Card UI
 
 ```swift
