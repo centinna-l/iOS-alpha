@@ -24,9 +24,6 @@
 
 ### 1. Top Bar + Title + Action Row
 
-````swift
-1. Top Bar + Title + Action Row
-
 ```swift
 import swiftui
 
