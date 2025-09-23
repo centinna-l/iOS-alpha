@@ -27,8 +27,6 @@
 ```swift
 import swiftui
 
-import SwiftUI
-
 struct Q1View: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
