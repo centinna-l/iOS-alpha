@@ -86,4 +86,5 @@ let sampleUsers: [User] = [
 3. Display the users in a List inside a NavigationView.
 4. Wrap each row in a NavigationLink that goes to ProfileDetailView(user: selectedUser).
 5. In ProfileDetailView, show the user’s name and age.
-6. Add a button that dismisses the detail screen (use either:
+6. Add a button that dismisses the detail screen use either:
+   1. `@Environment(\.dismiss) private var dismiss`
