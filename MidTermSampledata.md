@@ -1,4 +1,6 @@
-# Mid Term Sample Data
+# Mid Term
+
+## Sample Data
 
 ```swift
 static let courses: [Course] = [
@@ -73,4 +75,40 @@ static let courses: [Course] = [
             summary: "Unit testing fundamentals and testable function design."
         )
     ]
+```
+
+## Toggle
+
+```swift
+import SwiftUI
+
+struct CourseDetailView: View {
+    let course: Course                 // passed in from NavigationLink
+    @State private var isEnrolled = false  // local state for the toggle
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+
+            // code above
+
+            // --- The Toggle ---
+            Toggle("Enroll (local only)", isOn: $isEnrolled)
+
+            // Simple feedback based on the toggle state
+            if isEnrolled {
+                Text("✅ You are enrolled in this course.")
+                    .font(.subheadline)
+            } else {
+                Text("❌ You are not enrolled.")
+                    .font(.subheadline)
+            }
+
+            // Code below
+        }
+        .padding()
+        .navigationTitle("Course Details")
+    }
+}
+
+
 ```
